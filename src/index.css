@@ -1,0 +1,186 @@
+.demot {
+  margin: 20px;
+  margin-bottom: 5px;
+  background: #0e0e0e;
+  height: 100%;
+  width: 500px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.demot-img{
+  width: 400px;
+  margin-bottom: 20px;
+  
+}
+
+.whole-demot{
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.buttonMark {
+  border: none;
+  color: white;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+}
+
+.buttonMark:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.buttonMark:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.addButton {
+  --b:4px; /* the thickness */
+  width:40px; /* the size */
+  height: 40px;
+  aspect-ratio:1/1;
+  border:10px solid #000; /* the outer space */
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#000 90deg,#fff 0) 
+    calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
+    calc(50%  + var(--b))   calc(50%  + var(--b));
+  display:inline-block;
+}
+
+.plus {
+  background-color: green;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.minus {
+  background-color: red;
+  font-size: 30px;
+}
+
+.main {
+  display:table;
+  text-align: center;
+  position: relative;
+  margin: auto;
+}
+
+.navbar-brand.abs
+    {
+        position: absolute;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    #myNavbar{
+      margin-right: 100px;
+    }
+
+.addDemotModal {
+  background-color: black;
+  color: white;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  padding: 10px;
+  text-align: center;
+}
+
+.mainModal {
+  display:grid;
+  text-align: center;
+  
+}
+
+#title, #subtitle {
+  border: none;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#img {
+  display: none;
+
+}
+
+.imgLabel {
+  padding: 5px;
+  color: #fff;
+  background-color: #009578;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dontAddDemotButton{
+  width: 80px;
+  height: 40px;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  background-color:red;
+}
+
+.addDemotButton {
+  width: 80px;
+  height: 40px;
+  color: white;
+  border: none;
+  background-color:seagreen;
+}
+
+.smallDemotAlign {
+  display:table;
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.demotMini {
+  text-align: center;
+  width: 20%;
+  margin-top: 50px;
+
+}
+
+.demot-small {
+  margin: 20px;
+  margin-bottom: 5px;
+  background: #0e0e0e;
+  height: 50%;
+  width: 250px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.demot-small-img{
+  width: 200px;
+  margin-bottom: 20px;
+  
+}
+
+.pagination {
+  justify-content: center;
+  
+  
+}
+
+
+.page-item {
+  margin-left: 5px;
+}
+
+.page-link {
+  cursor: pointer;
+}
