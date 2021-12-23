@@ -1,12 +1,13 @@
-from django.urls import path, include
-from .views import DemotView
+from django.urls import path, include, re_path
+from .views import DemotView, FrontendAppView
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('api', DemotView)
+router.register('', DemotView)
 
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api', include(router.urls)),
+    re_path('', FrontendAppView.as_view())
 ]
