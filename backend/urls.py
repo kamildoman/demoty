@@ -8,6 +8,6 @@ router.register('', DemotView)
 
 
 urlpatterns = [
-    path('api', include(router.urls)),
-    re_path('', FrontendAppView.as_view())
+    path('api/', include(router.urls)),
+    path('', FrontendAppView.as_view())
 ]

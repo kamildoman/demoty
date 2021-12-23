@@ -6,8 +6,7 @@ import Pagination from './Pagination'
 import './App.css';
 
 
-axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 
 function App() {
   const [demots, setDemots] = useState([])
@@ -17,7 +16,7 @@ function App() {
   const refreshList = () => {
       axios.get('/api/')
       .then(function (response) {
-        console.log("AAA" + response)
+        console.log(response)
         setDemots(response.data.reverse()) 
       })
       console.log("refreshed")
