@@ -3,3 +3,42 @@ body {
     justify-content: center;
     overflow-wrap: break-word;
 }
+
+@media only screen and (max-width: 600px) {
+    
+    h2 {
+      font-size: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    
+
+}
+
+@media only screen and (max-width: 700px) {
+    .addDemotModal {
+      width: 60%;
+      left: 20%;
+    }
+    
+   
+
+    .demot-small {
+        margin: 0px;
+        width: 200px;
+    }
+
+    .demot-small-img {
+        width: 170px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .addDemotModal{
+        width: 80%;
+        left: 10%;
+    }
+  }

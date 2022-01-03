@@ -68,7 +68,7 @@ function Navbar(props){
     
     </Modal>
     <div className="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-        <ul className="navbar-nav ml-auto flex-nowrap">
+        <ul className="navbar-nav">
             <li className="nav-item">
                 <button onClick={() => {openAddDemotModal()}} className="nav-link m-2 menu-item addButton"></button>
             </li>
