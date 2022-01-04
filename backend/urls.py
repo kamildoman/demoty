@@ -13,5 +13,5 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-   re_path(r'^(?:.*)/?$', FrontendAppView.as_view()),
+   re_path(r'^demot/.*?$', FrontendAppView.as_view()),
 ]
