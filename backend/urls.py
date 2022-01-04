@@ -9,5 +9,9 @@ router.register('', DemotView)
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('', FrontendAppView.as_view())
+    path('', FrontendAppView.as_view()),
+]
+
+urlpatterns += [
+   re_path(r'^(?:.*)/?$', FrontendAppView.as_view()),
 ]
