@@ -3,7 +3,13 @@ import axios from "axios";
 import Demot from "./Demot"
 import Navbar from './Navbar'
 import Pagination from './Pagination'
+import SinglePageDemot from "./SinglePageDemot";
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 
@@ -16,10 +22,8 @@ function App() {
   const refreshList = () => {
       axios.get('/api/')
       .then(function (response) {
-        console.log(response)
         setDemots(response.data.reverse()) 
       })
-      console.log("refreshed")
     };
 
     useEffect(() => {
@@ -34,10 +38,11 @@ function App() {
       setCurrentPage(pageNumber)
     }
 
-    return (<div>
+    return (<Router><div>
               <Navbar setCurrentPage={setCurrentPage} refresh={refreshList}/>
               <div className="main">
-              {currentPosts.map(demot =>(
+              <Routes>
+              <Route path="/" exact element= {<>{currentPosts.map(demot =>(
               <Demot
               key= {demot.id} 
               id = {demot.id}
@@ -49,15 +54,18 @@ function App() {
               downvote={demot.downvote}
               ips={demot.ips}
               />
-            ))}
-            <Pagination 
+            ))}<Pagination 
             postsPerPage={postsPerPage} 
             totalPosts={demots.length} 
             paginate={paginate}  
-            />
+            /></>} />
+
+            <Route path="/demot/:id" element={<SinglePageDemot />} />
+            </Routes>
+            
             </div>
            
-            </div>)
+            </div></Router>)
     
   }
 

@@ -10,6 +10,11 @@
   padding: 20px;
 }
 
+.demot:hover{
+  text-decoration: none;
+  color: rgb(238, 229, 229);
+}
+
 .demot-img{
   width: 400px;
   margin-bottom: 20px;

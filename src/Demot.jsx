@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
 function Demot(props){
 
@@ -73,9 +74,9 @@ function Demot(props){
 
     if (props.whole === true){
         return <div className="whole-demot">
-                <div className="demot">
+                <Link to={`/demot/${props.id}`} className="demot">
                     <img alt="demot" className="demot-img" src={props.image} /><h2>{props.title}</h2><h3>{props.subtitle}</h3>
-                </div><ButtonPlus /><ButtonMinus /><p>Total: {totalVote}</p>
+                </Link><ButtonPlus /><ButtonMinus /><p>Total: {totalVote}</p>
                 </div>
             }
     else if (props.whole === false){
