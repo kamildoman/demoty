@@ -1,7 +1,7 @@
 
 from rest_framework import viewsets
-from .serializers import DemotSerializer
-from .models import Demot
+from .serializers import DemotSerializer, CommentSerializer
+from .models import Demot, Comment
 from django.views.generic import View
 import logging
 from django.conf import settings
@@ -11,6 +11,10 @@ import os
 class DemotView(viewsets.ModelViewSet):
     serializer_class = DemotSerializer
     queryset = Demot.objects.all()
+
+class CommentView(viewsets.ModelViewSet):
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.all()
 
 class FrontendAppView(View):
 

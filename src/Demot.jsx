@@ -27,7 +27,7 @@ function Demot(props){
             if (props.ips == null || !props.ips.includes(ip)){
                 setIsAdded(true)
                 setUpVote(upVote += 1)   
-                axios.put('/api/' + props.id + '/', {title: props.title, upvote: upVote, ips: ip_to_add})
+                axios.put('/api/demots/' + props.id + '/', {title: props.title, upvote: upVote, ips: ip_to_add})
                 setTotalVote(totalVote +=1)
             }
             else{
@@ -44,7 +44,7 @@ function Demot(props){
             if (props.ips == null || !props.ips.includes(ip)){
                 setIsAdded(true)
                 setDownVote(downVote += 1)
-                axios.put('/api/' + props.id + '/', {title: props.title, downvote: downVote, ips: ip_to_add})
+                axios.put('/api/demots/' + props.id + '/', {title: props.title, downvote: downVote, ips: ip_to_add})
                 setTotalVote(totalVote -=1)
             }
             else{

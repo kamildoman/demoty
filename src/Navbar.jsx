@@ -22,7 +22,7 @@ function Navbar(props){
         setSubtitle('')
         setImage(null)
         setImageDisplay(null)
-        axios.post("/api/", formData, {
+        axios.post("/api/demots/", formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }}).catch(error => {

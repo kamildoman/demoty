@@ -12,3 +12,11 @@ class Demot(models.Model):
     def __str__(self) -> str:
         return self.title
 
+class Comment(models.Model):
+    demot = models.ForeignKey(Demot, on_delete=models.CASCADE)
+    comment_text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.comment_text
+

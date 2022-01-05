@@ -1,9 +1,10 @@
 from django.urls import path, include, re_path
-from .views import DemotView, FrontendAppView
+from .views import DemotView, FrontendAppView, CommentView
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('', DemotView)
+router.register('demots', DemotView)
+router.register('comments', CommentView)
 
 
 

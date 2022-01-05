@@ -20,7 +20,7 @@ function App() {
   const [postsPerPage] = useState(5)
 
   const refreshList = () => {
-      axios.get('/api/')
+      axios.get('/api/demots/')
       .then(function (response) {
         setDemots(response.data.reverse()) 
       })
