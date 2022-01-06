@@ -3,12 +3,24 @@ import axios from "axios";
 import {Link} from 'react-router-dom';
 
 function Demot(props){
-
     var [totalVote, setTotalVote] = useState(props.upvote - props.downvote)
     var [upVote, setUpVote] = useState(props.upvote)
     var [downVote, setDownVote] = useState(props.downvote)
     const [ip, setIP] = useState('');
     const [isAdded, setIsAdded] = useState(false)
+    const [owner, setOwner] = useState("")
+
+    function getOwner(){
+        if (props.owner == null){
+            setOwner("Anonymous User")
+        }
+        else {
+            axios.get('/api/all-users/' + props.owner +'/')
+            .then(res => {
+                setOwner(res.data.username)
+            })
+        }
+    }
 
     const getIPData = async () => {
         const res = await axios.get('https://geolocation-db.com/json/')
@@ -18,6 +30,7 @@ function Demot(props){
 
       useEffect( () => {
         getIPData()
+        getOwner()
     
       }, [])
       var ip_to_add = props.ips + ", " + ip
@@ -76,7 +89,8 @@ function Demot(props){
         return <div className="whole-demot">
                 <Link to={`/demot/${props.id}`} className="demot">
                     <img alt="demot" className="demot-img" src={props.image} /><h2>{props.title}</h2><h3>{props.subtitle}</h3>
-                </Link><ButtonPlus /><ButtonMinus /><p>Total: {totalVote}</p>
+                </Link><ButtonPlus /><ButtonMinus /><div>Total: {totalVote}</div>
+                <div className="by-who">By {owner}</div>
                 </div>
             }
     else if (props.whole === false){

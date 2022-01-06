@@ -17,6 +17,10 @@ const SinglePageDemot = () => {
 
     function addComment(){
         var formData = new FormData();
+
+        let token = localStorage.getItem('LoginToken')
+
+        formData.append("token", token)
         formData.append("comment_text", commentValue);
         formData.append("demot", id);
         setCommentValue("")
@@ -42,6 +46,7 @@ const SinglePageDemot = () => {
         async function getData(){
             axios.get('/api/demots/' + id +'/')
             .then(function (response) {
+                    console.log(response.data)
                     setDemot(response?.data) 
             })
             .catch(e => {
@@ -69,6 +74,7 @@ const SinglePageDemot = () => {
                   upvote={demot.upvote}
                   downvote={demot.downvote}
                   ips={demot.ips}
+                  owner={demot.owner}
                   />
                   <div>
                     <input 
@@ -81,6 +87,7 @@ const SinglePageDemot = () => {
                           key={comment.id}
                           text={comment.comment_text}
                           date={comment.date}
+                          owner={comment.owner}
                       />
                   ))}
             </div>

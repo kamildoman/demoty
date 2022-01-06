@@ -16,18 +16,36 @@ import {
 
 function App() {
   const [demots, setDemots] = useState([])
+  const [username, setUsername] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(5)
+
+  const getToken = () => {
+    let header = {
+      'Authorization': 'Token ' + localStorage.getItem('LoginToken')}
+
+      axios.get('/user/', {headers: header,
+      }).then(res => {
+        let username = res.data.username.substring(0, 10)
+        setUsername(username)
+      }).catch(e => {
+        if (e.response.status > 300){
+            setUsername("Anonymous")
+        }
+    })
+    }
 
   const refreshList = () => {
       axios.get('/api/demots/')
       .then(function (response) {
         setDemots(response.data.reverse()) 
       })
+      setTimeout(function() { getToken(); }, 1000);
     };
 
     useEffect(() => {
       refreshList()
+      getToken()
     }, [])
     
     const indexOfLastPost = currentPage * postsPerPage
@@ -39,7 +57,7 @@ function App() {
     }
 
     return (<Router><div>
-              <Navbar setCurrentPage={setCurrentPage} refresh={refreshList}/>
+              <Navbar setCurrentPage={setCurrentPage} refresh={refreshList} username={username}/>
               <div className="main">
               <Routes>
               <Route path="/" exact element= {<>{currentPosts.map(demot =>(
@@ -53,6 +71,7 @@ function App() {
               upvote={demot.upvote}
               downvote={demot.downvote}
               ips={demot.ips}
+              owner={demot.owner}
               />
             ))}<Pagination 
             postsPerPage={postsPerPage} 

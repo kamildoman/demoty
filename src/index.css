@@ -39,7 +39,7 @@
 
 .navbar-nav {
   margin-left:auto;
-  margin-right: 50px;
+  margin-right: 10px;
 }
 
 
@@ -302,4 +302,25 @@
 .comment-user-date {
   color: rgb(196, 196, 196);
   font-weight: bold;
+}
+
+.by-who{
+  font-style: italic;
+  color: rgb(78, 78, 78);
+
+}
+
+.login-buttons {
+  margin-bottom: 5px;
+  margin-right: 4px;
+	display:block;
+	cursor:pointer;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+  color: #cfcfcf;
+}
+
+.login-buttons:hover{
+  color: #f7f7f7;
 }
